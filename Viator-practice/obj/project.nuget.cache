@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "LJo310Gf4kjca9rKw3tHsIvEkwkJ3PcQ/nPL47ieVqbnMNlnd1MKSkMo6WuULw0EBHp/jraOUowRB2q29tee6Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\digio\\Desktop\\Viator\\Viator-practice\\Viator-practice\\Viator-practice.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\digio\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
