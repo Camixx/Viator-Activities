@@ -1,6 +1,5 @@
 ﻿namespace Viator_practice.Models
 {
-
     public class Destination
     {
         public int sortOrder { get; set; }
@@ -33,13 +32,7 @@
             this.latitude = latitude;
             this.longitude = longitude;
         }
-
-
-
-
     }
-
-
 }
 
 
