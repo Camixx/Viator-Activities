@@ -33,6 +33,10 @@
             this.latitude = latitude;
             this.longitude = longitude;
         }
+
+
+
+
     }
 
 

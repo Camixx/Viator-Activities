@@ -1,9 +1,25 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<p>Destino</p>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-<h3>@ViewData["Destinations"]</h3>
+<form action="@Url.Action("Index","Home")" method="get">
+    <input type="text" name="destinoBuscado" placeholder="Buscar...">
+    <button type="submit">Buscar</button>
+</form>
+
+    <h2>Resultados de busqueda para "@ViewBag.DestinoBuscado"</h2>
+
+    @if (ViewBag.Resultados != null)
+    {
+        <ul>
+            @foreach (var resultado in ViewBag.Resultados)
+            {
+                <li>
+                    @resultado
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No hay resultados disponibles.</p>
+    }
+
