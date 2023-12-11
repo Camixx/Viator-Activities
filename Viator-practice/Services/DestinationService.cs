@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json.Linq;
+using System.Globalization;
 using Viator_practice.Controllers;
 using Viator_practice.Models;
 
@@ -75,11 +76,19 @@ namespace Viator_practice.Services
         {
             List<String> resultados = new List<string>();
             List<Destination> listaDestinos = await GetDestinationsFromCache();
+            CultureInfo ci = new CultureInfo("en-US");
 
             foreach (Destination d in listaDestinos)
             {
-                string nombre = d.destinationName;
-                resultados.Add(nombre);
+                var destinationName = d.destinationName;
+
+                if (destinoBuscado != null)
+                {
+                    if (destinationName.StartsWith(destinoBuscado, true, ci))
+                    {
+                        resultados.Add(destinationName);
+                    }
+                }
             }
 
             return resultados;
