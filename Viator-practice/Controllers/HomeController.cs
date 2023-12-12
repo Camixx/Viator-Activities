@@ -1,7 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Diagnostics;
 using Viator_practice.Models;
 using Viator_practice.Services;
+using System.Text.Json;
+
+
 
 namespace Viator_practice.Controllers
 {
@@ -15,15 +19,20 @@ namespace Viator_practice.Controllers
             _destinationService = destinationService;
         }
 
-        public async Task<IActionResult> IndexAsync(string destinoBuscado)
+        public async Task<IActionResult> IndexAsync()
         {
-            Task<List<String>> resultados = _destinationService.obtenerDestinos(destinoBuscado);
-            List<String> listaResultados = await resultados;
-
-            ViewBag.DestinoBuscado = destinoBuscado;
-            ViewBag.Resultados = listaResultados;
-
             return View();
+        }
+
+
+        [HttpGet("/Destinations")]
+        public async Task<string> Destinations(string name)
+        {
+            Task<List<String>> resultados = _destinationService.obtenerDestinos(name);
+            List<String> listaResultados = await resultados;
+            var json = JsonConvert.SerializeObject(listaResultados);
+
+            return json;
         }
 
         public IActionResult Privacy()
