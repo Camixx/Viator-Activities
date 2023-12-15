@@ -6,22 +6,17 @@ const boxSuggestions = document.querySelector(
 
 const searchLink = document.querySelector('a');
 
-inputSearch.onkeyup = e => {
+inputSearch.onkeyup = async (e) => {
 	let userData = e.target.value;
-	let emptyArray = [];
 
 	if (userData) {
-		emptyArray = suggestions.filter(data => {
-			return data
-				.toLocaleLowerCase()
-				.startsWith(userData.toLocaleLowerCase());
-		});
+		let destinations = await getDestinationsFromApi(userData);
 
-		emptyArray = emptyArray.map(data => {
+		destinations = destinations.map(data => {
 			return (data = `<li>${data}</li>`);
 		});
 		searchContainer.classList.add('active');
-		showSuggestions(emptyArray);
+		showSuggestions(destinations);
 
 		let allList = boxSuggestions.querySelectorAll('li');
 
@@ -52,3 +47,9 @@ const showSuggestions = list => {
 	}
 	boxSuggestions.innerHTML = listData;
 };
+
+async function getDestinationsFromApi(userData) {
+	const response = await fetch("/destinations?name=" + userData);
+	destinations = await response.json();
+	return destinations;
+}

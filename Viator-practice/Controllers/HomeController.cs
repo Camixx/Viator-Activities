@@ -25,7 +25,7 @@ namespace Viator_practice.Controllers
         }
 
 
-        [HttpGet("/Destinations")]
+        [HttpGet("/destinations")]
         public async Task<string> Destinations(string name)
         {
             Task<List<String>> resultados = _destinationService.obtenerDestinos(name);
