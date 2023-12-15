@@ -28,10 +28,12 @@ inputSearch.onkeyup = async (e) => {
 	}
 };
 
+//TODO: Fix this function
 function select(element) {
 	let selectUserData = element.textContent;
 	inputSearch.value = selectUserData;
 
+	//TODO: Modify endpoint with activities endpoint and destinationID
 	searchLink.href = `https://www.google.com/search?q=${inputSearch.value}`;
 	searchContainer.classList.remove('active');
 }
