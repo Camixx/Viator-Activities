@@ -1,9 +1,27 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0" />
+	<title>Barra de búsqueda con autocompletado</title>
+	<link rel="stylesheet" href="~/css/Styles.css" />
+	<script src="https://kit.fontawesome.com/81581fb069.js"
+			crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="search-input-box">
+			<input type="text" placeholder="¿Qué quieres buscar?" />
+			<a href="#" target="_blank">
+				<i class="fa-solid fa-magnifying-glass icon"> </i>
+			</a>
+			<ul class="container-suggestions">
+			</ul>
+		</div>
+	</div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-<h3>@ViewData["Destinations"]</h3>
+	<script src="~/js/main.js"></script>
+</body>
+</html>
