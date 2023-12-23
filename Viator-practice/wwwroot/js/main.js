@@ -10,10 +10,10 @@ inputSearch.onkeyup = async (e) => {
 	let userData = e.target.value;
 
 	if (userData) {
-		let destinations = await getDestinationsFromApi(userData);
+		destinations = await getDestinationsFromApi(userData);
 
 		destinations = destinations.map(data => {
-			return (data = `<li>${data}</li>`);
+			return (data = `<li value=${data.Item1} >${data.Item2}</li>`);
 		});
 		searchContainer.classList.add('active');
 		showSuggestions(destinations);
@@ -30,11 +30,12 @@ inputSearch.onkeyup = async (e) => {
 
 //TODO: Fix this function
 function select(element) {
+
+	let destinationId = element.value
 	let selectUserData = element.textContent;
 	inputSearch.value = selectUserData;
 
-	//TODO: Modify endpoint with activities endpoint and destinationID
-	searchLink.href = `https://www.google.com/search?q=${inputSearch.value}`;
+	searchLink.href = `/activities?destinationId=${destinationId}`;
 	searchContainer.classList.remove('active');
 }
 
