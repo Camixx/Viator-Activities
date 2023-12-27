@@ -35,7 +35,8 @@ function select(element) {
 	let selectUserData = element.textContent;
 	inputSearch.value = selectUserData;
 
-	searchLink.href = `/activities?destinationId=${destinationId}`;
+	//searchLink.href = `/activities?destinationId=${destinationId}`;
+	searchLink.href = await fetch("/destinations?name=" + userData);
 	searchContainer.classList.remove('active');
 }
 
