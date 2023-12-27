@@ -7,6 +7,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 builder.Services.AddMemoryCache();
 builder.Services.AddScoped<DestinationService, DestinationService>();
+builder.Services.AddScoped<ActivityService, ActivityService>();
 
 var app = builder.Build();
 
