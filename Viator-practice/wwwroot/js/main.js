@@ -30,13 +30,10 @@ inputSearch.onkeyup = async (e) => {
 
 //TODO: Fix this function
 function select(element) {
-
 	let destinationId = element.value
-	let selectUserData = element.textContent;
-	inputSearch.value = selectUserData;
+	inputSearch.value = element.textContent;
 
-	//searchLink.href = `/activities?destinationId=${destinationId}`;
-	searchLink.href = await fetch("/destinations?name=" + userData);
+	searchLink.href = `/activities?destinationId=${destinationId}`;
 	searchContainer.classList.remove('active');
 }
 
