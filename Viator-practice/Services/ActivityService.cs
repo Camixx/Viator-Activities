@@ -39,10 +39,7 @@ namespace Viator_practice.Services
                 List<Product> activities = parsearActivities(json);
 
                 foreach ( Product a in activities ) {
-                    if (a.destinationId == destinationId)
-                    {
-                        matches.Add(a);
-                    }
+                  matches.Add(a);
                 }
             }
 

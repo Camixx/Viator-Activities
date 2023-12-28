@@ -14,11 +14,11 @@
 
     public class Filtering
     {
-        public string destination { get; set; }
+        public int destination { get; set; }
 
         public Filtering(int destination)
         {
-            this.destination = destination.ToString();
+            this.destination = destination;
         }
     }
 }
