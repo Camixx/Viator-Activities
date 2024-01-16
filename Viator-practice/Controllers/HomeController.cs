@@ -13,10 +13,12 @@ namespace Viator_practice.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly DestinationService _destinationService;
+        private readonly ActivityService _activityService;
 
-        public HomeController(DestinationService destinationService)
+        public HomeController(DestinationService destinationService, ActivityService activityService)
         {
             _destinationService = destinationService;
+            _activityService = activityService;
         }
 
         public async Task<IActionResult> IndexAsync()
@@ -28,9 +30,18 @@ namespace Viator_practice.Controllers
         [HttpGet("/destinations")]
         public async Task<string> Destinations(string name)
         {
-            Task<List<String>> resultados = _destinationService.obtenerDestinos(name);
-            List<String> listaResultados = await resultados;
+            Task<List<Tuple<int, String>>> resultados = _destinationService.obtenerDestinos(name);
+            List <Tuple<int, String>> listaResultados = await resultados;
             var json = JsonConvert.SerializeObject(listaResultados);
+
+            return json;
+        }
+
+        [HttpGet("/activities")]
+        public async Task<string> Activities(int destinationId)
+        {
+            var resultados = await _activityService.getActivities(destinationId);
+            var json = JsonConvert.SerializeObject(resultados);
 
             return json;
         }

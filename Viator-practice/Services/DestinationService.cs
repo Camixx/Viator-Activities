@@ -72,9 +72,9 @@ namespace Viator_practice.Services
             return listDestinations;
         }
 
-        public async Task<List<String>> obtenerDestinos(String destinoBuscado)
+        public async Task<List<Tuple<int, String>>> obtenerDestinos(String destinoBuscado)
         {
-            List<String> resultados = new List<string>();
+            List<Tuple<int, String>> tuplesArray = new List<Tuple<int, String>>();
             List<Destination> listaDestinos = await GetDestinationsFromCache();
             CultureInfo ci = new CultureInfo("en-US");
 
@@ -86,12 +86,12 @@ namespace Viator_practice.Services
                 {
                     if (destinationName.StartsWith(destinoBuscado, true, ci))
                     {
-                        resultados.Add(destinationName);
+                        tuplesArray.Add(new Tuple<int, String>(d.destinationId,destinationName));
                     }
                 }
             }
 
-            return resultados;
+            return tuplesArray;
         }
     }
 }
