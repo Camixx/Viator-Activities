@@ -50,10 +50,11 @@ namespace Viator_practice.Services
         {
             List<Product> activities = new List<Product>();
             int i = 0;
-            Product activity = new Product();
 
             foreach(JObject j in json["products"])
             {
+                Product activity = new Product();
+
                 activity.productCode = (string)json["products"][i]["productCode"];
                 activity.title = (string)json["products"][i]["title"];
                 activity.description = (string)json["products"][i]["description"];
@@ -61,11 +62,15 @@ namespace Viator_practice.Services
                 activity.pricing = (float)json["products"][i]["pricing"]["summary"]["fromPrice"];
                 activity.productUrl = (string)json["products"][i]["productUrl"];
                 activity.destinationId = (int)json["products"][i]["destinations"][0]["ref"];
-                //activity.rating = (float)json["products"][i]["reviews"]["combinedAverageRating"];  
 
                 activities.Add(activity);
 
                 i++;
+            }
+
+            foreach (Product a in activities)
+            {
+               Console.WriteLine(a.productCode);
             }
 
             return activities;
