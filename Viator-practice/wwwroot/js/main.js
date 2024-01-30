@@ -4,8 +4,7 @@ const boxSuggestions = document.querySelector(
 	'.container-suggestions'
 );
 
-const searchLink = document.querySelector('a');
-
+const searchLink = document.querySelector('.search-box-href');
 
 // En base a las letras que se van tipeando (evento), se captura el contenido del inputSearch y muestran sugerencias (nombres de paises) en el dropdown.
 inputSearch.onkeyup = async (e) => {
@@ -92,21 +91,23 @@ async function createCards(element) {
 
 function createCard(activity) {
 	return `
-      <a href="${activity.productUrl}" class="custom-card col-sm-3 mt-3 no-underline" target="_blank">
-        <div class="card custom-card">
-		<div class="card-container">
-          <img class="card-img-top" src="${activity.image}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">${activity.title}</h5>
-            <br>
-            <div class="d-flex justify-content-between">
-              <p class="card-text text-left">USD${activity.pricing}</p>
-              <p class="card-text text-right">★★★★★</p>
-            </div>
-          </div>
-        </div>
+	<a href="${activity.productUrl}" class="no-underline col-sm-3" target="_blank">
+		<div class="card custom-card">
+			<img class="card-img-top" src="${activity.image}" alt="Card image cap">
+			<div class="card-body d-flex flex-column">
+			<div class="d-flex align-items-start">
+			<i class="fa-solid fa-location-dot" style="margin-top: 4px; margin-right: 8px;"></i>
+				<h6 class="card-title" style="margin-bottom: 8px;">
+					  ${activity.title}
+				</h6>
+			</div>
+				<div class="d-flex justify-content-between align-items-center mt-auto ">
+					<p class="card-text text-left mb-0 "style="font-size:15px;">USD ${activity.pricing}</p>
+					<p class="card-text text-right mb-0" style="color:gold; font-size:25px;">★★★★★</p>
+				</div>
+			</div>
 		</div>
-      </a>
-    `;
+	</a>
+	  `;
 }
 

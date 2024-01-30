@@ -68,11 +68,6 @@ namespace Viator_practice.Services
                 i++;
             }
 
-            foreach (Product a in activities)
-            {
-               Console.WriteLine(a.productCode);
-            }
-
             return activities;
 
         }
