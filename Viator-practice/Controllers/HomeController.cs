@@ -41,6 +41,7 @@ namespace Viator_practice.Controllers
         public async Task<string> Activities(int destinationId)
         {
             var resultados = await _activityService.getActivities(destinationId);
+
             var json = JsonConvert.SerializeObject(resultados);
 
             return json;

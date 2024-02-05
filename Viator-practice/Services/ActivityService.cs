@@ -35,11 +35,12 @@ namespace Viator_practice.Services
             if (response.IsSuccessStatusCode)
             {
                 var responseData = await response.Content.ReadAsStringAsync();
+
                 JObject json = JObject.Parse(responseData);
                 List<Product> activities = parsearActivities(json);
 
                 foreach ( Product a in activities ) {
-                  matches.Add(a);
+                    matches.Add(a);
                 }
             }
 
