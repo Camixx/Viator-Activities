@@ -12,10 +12,13 @@ Esta página utiliza la api de [Viator](https://docs.viator.com/partner-api/tech
 - Microsoft sql server
 
 # Bibliotecas usadas
-| Biblioteca                                                               | Descripción                                | Usado para                              |
-|--------------------------------------------------------------------------|--------------------------------------------|-----------------------------------------|
-| HttpClient                                                               |Se utiliza para enviar solicitudes HTTP y recibir respuestas HTTP de un recurso identificado por un URI. Está pensado para crear instancias una vez y reutilizarse durante toda la vida de una aplicación.                                           | Consumir api                            |
-| IMemoryCache                                                             |    Representa una abstracción de una memoria caché en la que se puede almacenar datos temporalmente para mejorar el rendimiento de la aplicación. Proporciona métodos para agregar, recuperar y eliminar datos de la memoria caché.                                         | Guardar datos en cache                  |
+| Biblioteca             | Descripción                                                                                                                                                                                                                      | Usado para             
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
+|  HttpClient            | Se utiliza para enviar solicitudes HTTP y recibir respuestas HTTP de un recurso identificado por un URI. Está pensado para crear instancias una vez y reutilizarse durante toda la vida de una aplicación.                       | Consumir api             |
+| IMemoryCache           | Representa una abstracción de una memoria caché en la que se puede almacenar datos temporalmente para mejorar el rendimiento de la aplicación. Proporciona métodos para agregar, recuperar y eliminar datos de la memoria caché. | Guardar datos en cache   |
+| XUnit                  |                                                                                                                                                                                                                                  |                          |
+| NSubstitute            |                                                                                                                                                                                                                                  |                          |
+| RichardSzalay.MockHttp |
 
 # Setup
 - Instalar [.net Core SDK](https://dotnet.microsoft.com/es-es/download/dotnet/3.1)
