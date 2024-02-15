@@ -1,7 +1,11 @@
-﻿namespace Viator_practice.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Viator_practice.Models
 {
     public class Destination
     {
+        [Key]
+        public int destinationId { get; set; }
         public int sortOrder { get; set; }
         public bool selectable { get; set; }
         public string destinationUrlName { get; set; }
@@ -11,7 +15,6 @@
         public string timeZone { get; set; }
         public string iataCode { get; set; }
         public string destinationName { get; set; }
-        public int destinationId { get; set; }
         public string destinationType { get; set; }
         public float latitude { get; set; }
         public float longitude { get; set; }
