@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Viator_practice;
 using Viator_practice.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +10,8 @@ builder.Services.AddHttpClient();
 builder.Services.AddMemoryCache();
 builder.Services.AddScoped<DestinationService, DestinationService>();
 builder.Services.AddScoped<ActivityService, ActivityService>();
+builder.Services.AddDbContext<ViatorActivitiesContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("ActivitiesConnection")));
 
 var app = builder.Build();
 
